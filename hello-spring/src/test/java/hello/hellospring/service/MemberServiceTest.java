@@ -2,20 +2,23 @@ package hello.hellospring.service;
 
 import hello.hellospring.domain.Member;
 import hello.hellospring.repository.MemoryMemberRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MemberServiceTest {
-    MemberService memberService = new MemberService();
-    //test이후에 repository clear해주고 싶은데 멤버 서비스 밖에 없네? => 정의해주기
-    MemoryMemberRepository memberRepository = new MemoryMemberRepository();
-    //근데 service의 멤버 레포지토리랑 다른 객체야 => 같은 걸 쓰는게 낫겠죠.
+    MemberService memberService;
+    MemoryMemberRepository memberRepository;
+
+    @BeforeEach
+    public void beforeEach(){
+        // 테스트 실행할때마다 각각 실행해줌
+        memberRepository = new MemoryMemberRepository();
+        memberService = new MemberService(memberRepository);
+    }
 
     @AfterEach
     public void afterEach(){
