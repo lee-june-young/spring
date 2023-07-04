@@ -2,6 +2,7 @@ package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -12,6 +13,11 @@ import static org.assertj.core.api.Assertions.*;
 class MemoryMemberRepositoryTest {
 
     MemoryMemberRepository repository = new MemoryMemberRepository();
+
+    @AfterEach //테스트가 끝날 때마다 불리는 콜백 메소드
+    public void afterEach(){
+        repository.clearStore();   //저장소 지우기
+    }
 
     @Test
     public void save() {
