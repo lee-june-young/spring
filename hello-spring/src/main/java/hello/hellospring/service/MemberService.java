@@ -25,6 +25,7 @@ public class MemberService {
         memberRepository.save(member);
         return member.getId();
     }
+
     private void validateDuplicateMember(Member member) {
         memberRepository.findByName(member.getName())
                 .ifPresent(m -> { //Optional을 통한 여러 메소드를 사용가능하다.
