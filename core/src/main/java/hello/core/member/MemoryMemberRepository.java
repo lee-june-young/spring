@@ -1,9 +1,13 @@
 package hello.core.member;
 
+import org.springframework.stereotype.Component;
+
 import java.util.HashMap;
 import java.util.Map;
 
 //원래 인터페이스랑 구현체는 다른 패키지 안에 두는 게 설계 상 좋아.
+
+@Component
 public class MemoryMemberRepository implements MemberRepository{
 
     private static Map<Long, Member> store = new HashMap<>();
