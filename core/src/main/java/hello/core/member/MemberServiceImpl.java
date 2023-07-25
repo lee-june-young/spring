@@ -18,4 +18,9 @@ public class MemberServiceImpl implements MemberService {
         return memberRepository.findById(memberId);
     }
     //관례같은 건데, 구현체 하나만 있을 때는 인터페이스명+ Impl을 관례상 많이 쓴다.
+
+    //테스트 용도
+    public MemberRepository getMemberRepository(){
+        return memberRepository;
+    }
 }

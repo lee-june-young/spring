@@ -19,18 +19,30 @@ public class AppConfig {
     //그리고 함수 내부를 보면 구현을 뭘로 할껀지 다 드러난다.
     //=> 설계에 대한 그림이 이 AppConfig 구성 정보에 그대로 그러난다.
 
+    //@Bean memberService -> new MemoryMemberRepository()
+    //@Bean orderService -> new MemoryMemberRepository()
+    //보이는 것부터 2번 호출됨. -> 싱글톤이 깨질까 안깨질까 => test code로 실험해보자.
+
+
+    //
     @Bean
     public MemberService memberService(){
+        //1번
+        System.out.println("call AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public MemberRepository memberRepository() {
+        //2번? 3번?
+        System.out.println("call AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
     @Bean
     public OrderService orderService(){
+        //1번
+        System.out.println("call AppConfig.orderService");
         return new OrderServiceImpl(memberRepository(), discountPolicy());
     }
 
