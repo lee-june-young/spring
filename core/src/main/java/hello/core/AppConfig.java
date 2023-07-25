@@ -23,8 +23,6 @@ public class AppConfig {
     //@Bean orderService -> new MemoryMemberRepository()
     //보이는 것부터 2번 호출됨. -> 싱글톤이 깨질까 안깨질까 => test code로 실험해보자.
 
-
-    //
     @Bean
     public MemberService memberService(){
         //1번
