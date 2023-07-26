@@ -15,8 +15,8 @@ import org.springframework.context.annotation.FilterType;
 )
 public class AutoAppConfig {
     // 똑같은 이름으로 등록해봄.
-    @Bean(name = "memoryMemberRepository")
+/*    @Bean(name = "memoryMemberRepository")
     public MemberRepository memberRepository() {
         return new MemoryMemberRepository();
-    }
+    }*/
 }

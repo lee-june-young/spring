@@ -11,7 +11,7 @@ public class OrderServiceImpl implements OrderService{
 
     //DIP 지키고 있음! 인터페이스에만 의존!
 
-    private final MemberRepository memberRepository;
+    private final MemberRepository memberRepository; //final: 필수로 값이 있어야 해
     private final DiscountPolicy discountPolicy ;
 
     @Autowired
