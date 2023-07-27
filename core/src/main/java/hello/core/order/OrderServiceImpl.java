@@ -14,6 +14,16 @@ public class OrderServiceImpl implements OrderService{
     private final MemberRepository memberRepository; //final: 필수로 값이 있어야 해
     private final DiscountPolicy discountPolicy ;
 
+/*    @Autowired
+    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
+
+    @Autowired
+    public void setMemberRepository(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }*/
+
     @Autowired
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
