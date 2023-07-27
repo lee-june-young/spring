@@ -3,32 +3,17 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService{
-
     //DIP 지키고 있음! 인터페이스에만 의존!
 
     private final MemberRepository memberRepository; //final: 필수로 값이 있어야 해
     private final DiscountPolicy discountPolicy ;
-
-/*    @Autowired
-    public void setDiscountPolicy(DiscountPolicy discountPolicy) {
-        this.discountPolicy = discountPolicy;
-    }
-
-    @Autowired
-    public void setMemberRepository(MemberRepository memberRepository) {
-        this.memberRepository = memberRepository;
-    }*/
-
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
